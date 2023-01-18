@@ -7,13 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		43618CA82977D22C003A2016 /* ChallengeRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43618CA72977D22C003A2016 /* ChallengeRing.swift */; };
+		43618CB02977E03C003A2016 /* Steps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43618CAF2977E03C003A2016 /* Steps.swift */; };
+		43C6F5CE29769FC600609F16 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C6F5CD29769FC600609F16 /* DetailView.swift */; };
+		43C6F5D029769FEF00609F16 /* ChallengeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C6F5CF29769FEF00609F16 /* ChallengeView.swift */; };
+		43C6F5D52976C96900609F16 /* TimeSeriesOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C6F5D42976C96900609F16 /* TimeSeriesOverview.swift */; };
+		43C6F5D92976D17F00609F16 /* DataDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C6F5D82976D17F00609F16 /* DataDummy.swift */; };
 		43FE6A702972DF8B00C7D861 /* HealthTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FE6A6F2972DF8B00C7D861 /* HealthTrackerApp.swift */; };
 		43FE6A722972DF8B00C7D861 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FE6A712972DF8B00C7D861 /* ContentView.swift */; };
 		43FE6A742972DF8C00C7D861 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43FE6A732972DF8C00C7D861 /* Assets.xcassets */; };
 		43FE6A772972DF8C00C7D861 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43FE6A762972DF8C00C7D861 /* Preview Assets.xcassets */; };
-		43FE6A812972DF8C00C7D861 /* HealthTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FE6A802972DF8C00C7D861 /* HealthTrackerTests.swift */; };
-		43FE6A8B2972DF8C00C7D861 /* HealthTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FE6A8A2972DF8C00C7D861 /* HealthTrackerUITests.swift */; };
-		43FE6A8D2972DF8C00C7D861 /* HealthTrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FE6A8C2972DF8C00C7D861 /* HealthTrackerUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,16 +37,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		43618CA72977D22C003A2016 /* ChallengeRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeRing.swift; sourceTree = "<group>"; };
+		43618CAF2977E03C003A2016 /* Steps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Steps.swift; sourceTree = "<group>"; };
+		43C6F5CD29769FC600609F16 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		43C6F5CF29769FEF00609F16 /* ChallengeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeView.swift; sourceTree = "<group>"; };
+		43C6F5D42976C96900609F16 /* TimeSeriesOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSeriesOverview.swift; sourceTree = "<group>"; };
+		43C6F5D82976D17F00609F16 /* DataDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDummy.swift; sourceTree = "<group>"; };
 		43FE6A6C2972DF8B00C7D861 /* HealthTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43FE6A6F2972DF8B00C7D861 /* HealthTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthTrackerApp.swift; sourceTree = "<group>"; };
 		43FE6A712972DF8B00C7D861 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		43FE6A732972DF8C00C7D861 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		43FE6A762972DF8C00C7D861 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		43FE6A7C2972DF8C00C7D861 /* HealthTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HealthTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		43FE6A802972DF8C00C7D861 /* HealthTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthTrackerTests.swift; sourceTree = "<group>"; };
 		43FE6A862972DF8C00C7D861 /* HealthTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HealthTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		43FE6A8A2972DF8C00C7D861 /* HealthTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthTrackerUITests.swift; sourceTree = "<group>"; };
-		43FE6A8C2972DF8C00C7D861 /* HealthTrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthTrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,12 +77,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		43618CA92977DEFB003A2016 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				43618CAF2977E03C003A2016 /* Steps.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		43618CAA2977DF25003A2016 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				43C6F5D82976D17F00609F16 /* DataDummy.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		43C6F5D12976C8BE00609F16 /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				43C6F5D42976C96900609F16 /* TimeSeriesOverview.swift */,
+				43618CA72977D22C003A2016 /* ChallengeRing.swift */,
+			);
+			path = Charts;
+			sourceTree = "<group>";
+		};
 		43FE6A632972DF8B00C7D861 = {
 			isa = PBXGroup;
 			children = (
 				43FE6A6E2972DF8B00C7D861 /* HealthTracker */,
-				43FE6A7F2972DF8C00C7D861 /* HealthTrackerTests */,
-				43FE6A892972DF8C00C7D861 /* HealthTrackerUITests */,
 				43FE6A6D2972DF8B00C7D861 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -94,8 +123,13 @@
 		43FE6A6E2972DF8B00C7D861 /* HealthTracker */ = {
 			isa = PBXGroup;
 			children = (
+				43618CAA2977DF25003A2016 /* Util */,
+				43618CA92977DEFB003A2016 /* Model */,
+				43C6F5D12976C8BE00609F16 /* Charts */,
 				43FE6A6F2972DF8B00C7D861 /* HealthTrackerApp.swift */,
+				43C6F5CF29769FEF00609F16 /* ChallengeView.swift */,
 				43FE6A712972DF8B00C7D861 /* ContentView.swift */,
+				43C6F5CD29769FC600609F16 /* DetailView.swift */,
 				43FE6A732972DF8C00C7D861 /* Assets.xcassets */,
 				43FE6A752972DF8C00C7D861 /* Preview Content */,
 			);
@@ -108,23 +142,6 @@
 				43FE6A762972DF8C00C7D861 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		43FE6A7F2972DF8C00C7D861 /* HealthTrackerTests */ = {
-			isa = PBXGroup;
-			children = (
-				43FE6A802972DF8C00C7D861 /* HealthTrackerTests.swift */,
-			);
-			path = HealthTrackerTests;
-			sourceTree = "<group>";
-		};
-		43FE6A892972DF8C00C7D861 /* HealthTrackerUITests */ = {
-			isa = PBXGroup;
-			children = (
-				43FE6A8A2972DF8C00C7D861 /* HealthTrackerUITests.swift */,
-				43FE6A8C2972DF8C00C7D861 /* HealthTrackerUITestsLaunchTests.swift */,
-			);
-			path = HealthTrackerUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,7 +274,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43C6F5D92976D17F00609F16 /* DataDummy.swift in Sources */,
+				43C6F5D52976C96900609F16 /* TimeSeriesOverview.swift in Sources */,
+				43C6F5D029769FEF00609F16 /* ChallengeView.swift in Sources */,
 				43FE6A722972DF8B00C7D861 /* ContentView.swift in Sources */,
+				43C6F5CE29769FC600609F16 /* DetailView.swift in Sources */,
+				43618CB02977E03C003A2016 /* Steps.swift in Sources */,
+				43618CA82977D22C003A2016 /* ChallengeRing.swift in Sources */,
 				43FE6A702972DF8B00C7D861 /* HealthTrackerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,7 +289,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43FE6A812972DF8C00C7D861 /* HealthTrackerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,8 +296,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43FE6A8B2972DF8C00C7D861 /* HealthTrackerUITests.swift in Sources */,
-				43FE6A8D2972DF8C00C7D861 /* HealthTrackerUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
