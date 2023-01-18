@@ -13,6 +13,7 @@ func date(year: Int, month: Int, day: Int = 1) -> Date {
 /// Data for the daily and monthly step count.
 struct StepsData {
     /// Steps by day
+    static let today = 6941
     static let last30Days = [
         (day: date(year: 2022, month: 5, day: 8), steps: 3000),
         (day: date(year: 2022, month: 5, day: 9), steps: 4000),
@@ -25,7 +26,7 @@ struct StepsData {
         (day: date(year: 2022, month: 5, day: 16), steps: 2458),
         (day: date(year: 2022, month: 5, day: 17), steps: 1185),
         (day: date(year: 2022, month: 5, day: 18), steps: 3848),
-        (day: date(year: 2022, month: 5, day: 19), steps: 4554)
+        (day: date(year: 2022, month: 5, day: 19), steps: 6941)
     ]
     static let last7Days = [
         (day: date(year: 2022, month: 5, day: 13), steps: 4189),
@@ -34,7 +35,7 @@ struct StepsData {
         (day: date(year: 2022, month: 5, day: 16), steps: 2458),
         (day: date(year: 2022, month: 5, day: 17), steps: 1185),
         (day: date(year: 2022, month: 5, day: 18), steps: 2848),
-        (day: date(year: 2022, month: 5, day: 19), steps: 1554)
+        (day: date(year: 2022, month: 5, day: 19), steps: 6941),
     ]
     static var last7DaysTotal: Int {
         last7Days.map { $0.steps }.reduce(0, +)
@@ -48,5 +49,5 @@ struct StepsData {
     static let goalDaily = 5500.0
     static let goalWeekly = goalDaily * 7
     
-    static var progress = Double(StepsData.last7DaysTotal)/StepsData.goalWeekly
+    static var progress = Double(StepsData.today)/StepsData.goalDaily
 }

@@ -15,16 +15,16 @@ struct ChallengeRing: View {
     
     var body: some View {
         
-        VStack {
+        VStack(alignment: .leading) {
+            //durch Name der Challenge ersetzen
+            Text("Schritte")
+                .padding([.top, .leading])
             GeometryReader { geo in
                 Ring(progress: progressChallenge,
                      lineWidth: geo.size.width/10,
                      gradient: .activityProgress)
-                .padding()
+                .padding([.leading, .bottom, .trailing])
             }
-          //  Text("\(StepsData.last7DaysTotal)" + " " + "/" + " " + "\(Steps)" )
-            Text("letzte 7 Tage")
-                .font(.caption)
         }
     }
 }
@@ -143,6 +143,6 @@ extension Color {
 
 struct ChallengeRing_Previews: PreviewProvider {
     static var previews: some View {
-        ChallengeRing(progressChallenge: 0.8)
+        ChallengeRing(progressChallenge: StepsData.progress)
     }
 }

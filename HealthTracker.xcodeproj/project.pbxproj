@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		43618CA82977D22C003A2016 /* ChallengeRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43618CA72977D22C003A2016 /* ChallengeRing.swift */; };
 		43618CB02977E03C003A2016 /* Steps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43618CAF2977E03C003A2016 /* Steps.swift */; };
+		43618CB229781986003A2016 /* Challenges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43618CB129781986003A2016 /* Challenges.swift */; };
 		43C6F5CE29769FC600609F16 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C6F5CD29769FC600609F16 /* DetailView.swift */; };
 		43C6F5D029769FEF00609F16 /* ChallengeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C6F5CF29769FEF00609F16 /* ChallengeView.swift */; };
 		43C6F5D52976C96900609F16 /* TimeSeriesOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C6F5D42976C96900609F16 /* TimeSeriesOverview.swift */; };
@@ -39,6 +40,7 @@
 /* Begin PBXFileReference section */
 		43618CA72977D22C003A2016 /* ChallengeRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeRing.swift; sourceTree = "<group>"; };
 		43618CAF2977E03C003A2016 /* Steps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Steps.swift; sourceTree = "<group>"; };
+		43618CB129781986003A2016 /* Challenges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenges.swift; sourceTree = "<group>"; };
 		43C6F5CD29769FC600609F16 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		43C6F5CF29769FEF00609F16 /* ChallengeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeView.swift; sourceTree = "<group>"; };
 		43C6F5D42976C96900609F16 /* TimeSeriesOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSeriesOverview.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				43618CAF2977E03C003A2016 /* Steps.swift */,
+				43618CB129781986003A2016 /* Challenges.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				43618CB02977E03C003A2016 /* Steps.swift in Sources */,
 				43618CA82977D22C003A2016 /* ChallengeRing.swift in Sources */,
 				43FE6A702972DF8B00C7D861 /* HealthTrackerApp.swift in Sources */,
+				43618CB229781986003A2016 /* Challenges.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

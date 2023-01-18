@@ -9,24 +9,33 @@ import SwiftUI
 // Anzeige von gewählter Challenge abhängig machen
 struct DetailView: View {
     var body: some View {
-        VStack {
+        TabView {
+            //ForEach einfügen und Datenquelle für Challenges anlegen
             VStack {
-                Text("Challenge " /* + Destination*/)
-                    .font(.title)
-                ChallengeRing(progressChallenge: StepsData.progress/*, last7Days: StepsData.last7DaysTotal, goalsWeekly: StepsData.goalWeekly*/)
-                    .frame(height: 350.0)
-            }
-            Divider()
-            
-            VStack {
-                TimeSeriesOverview()
-                    .padding()
+                VStack {
+                    Text("Challenge " /* + Destination*/)
+                        .font(.title)
+                    ChallengeRing(progressChallenge: StepsData.progress)
+                        .frame(height: 300.0)
+                    Text("\(Int(StepsData.today)) / \(Int(StepsData.goalDaily)) Schritte")
+                        .bold()
+                    Text("\(Date.now.formatted(date: .abbreviated, time: .omitted))")
+                        .font(.caption)
+                }
+                Divider()
                 
+                VStack {
+                    TimeSeriesOverview()
+                        .padding()
+                    
+                }
+                
+                Spacer()
+                .padding()
             }
-            
-            Spacer()
-            .padding()
         }
+        .tabViewStyle(.page)
+        .indexViewStyle(.page(backgroundDisplayMode: .always))
     }
 }
 
