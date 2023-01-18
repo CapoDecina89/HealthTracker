@@ -15,16 +15,11 @@ struct ChallengeRing: View {
     
     var body: some View {
         
-        VStack(alignment: .leading) {
-            //durch Name der Challenge ersetzen
-            Text("Schritte")
-                .padding([.top, .leading])
-            GeometryReader { geo in
-                Ring(progress: progressChallenge,
-                     lineWidth: geo.size.width/10,
-                     gradient: .activityProgress)
-                .padding([.leading, .bottom, .trailing])
-            }
+        GeometryReader { geo in
+            Ring(progress: progressChallenge,
+                lineWidth: geo.size.width/10,
+                gradient: .activityProgress)
+            .padding()
         }
     }
 }

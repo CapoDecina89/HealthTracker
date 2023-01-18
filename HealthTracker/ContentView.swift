@@ -15,6 +15,7 @@ struct ContentView: View {
         case steps
         case sleep
         case water
+        case challenges
     }
     
     @State private var selection: Destinations?
@@ -40,6 +41,9 @@ struct ContentView: View {
                             .frame(minHeight: 200)
                     }
                 }
+                Section {
+                    NavigationLink("Challenge aktivieren", value: Destinations.challenges)
+                }
             }
             .navigationTitle("Dashboard")
             .listStyle(.insetGrouped)
@@ -50,6 +54,7 @@ struct ContentView: View {
                 case .steps: DetailView()
                 case .sleep: DetailView()
                 case .water: DetailView()
+                case .challenges: ChallengeView()
                 }
             }
         }
