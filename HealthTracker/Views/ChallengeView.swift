@@ -8,8 +8,15 @@
 import SwiftUI
 
 struct ChallengeView: View {
+    @State private var multiSelection = Set<Challenge.ID>()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List(challenges, selection: $multiSelection) {challenge in
+            HStack{
+                Text(challenge.name)
+                challenge.symbole
+            }
+        }
     }
 }
 

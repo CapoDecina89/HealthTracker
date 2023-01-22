@@ -20,7 +20,7 @@ struct TimeSeriesOverviewChart: View {
             LineMark(
                 x: .value("Tag", $0.day, unit: .day),
                 y: .value("Schritte", $0.steps))
-            
+            //Datenquelle von Art der Challenge übernehmen
             let goal = StepsData.goalDaily
             RuleMark(
                 y: .value("Ziel", goal)

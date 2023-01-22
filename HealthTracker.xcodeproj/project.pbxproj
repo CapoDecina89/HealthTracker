@@ -8,8 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		43618CA82977D22C003A2016 /* ChallengeRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43618CA72977D22C003A2016 /* ChallengeRing.swift */; };
-		43618CB02977E03C003A2016 /* Steps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43618CAF2977E03C003A2016 /* Steps.swift */; };
-		43618CB229781986003A2016 /* Challenges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43618CB129781986003A2016 /* Challenges.swift */; };
+		43618CB229781986003A2016 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43618CB129781986003A2016 /* Challenge.swift */; };
+		43618CB629796119003A2016 /* ChallengeOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43618CB529796119003A2016 /* ChallengeOverview.swift */; };
+		43618CBA29796C26003A2016 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43618CB929796C26003A2016 /* ModelData.swift */; };
+		43618CBC297979BE003A2016 /* challengeData.json in Resources */ = {isa = PBXBuildFile; fileRef = 43618CBB297979BE003A2016 /* challengeData.json */; };
 		43C6F5CE29769FC600609F16 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C6F5CD29769FC600609F16 /* DetailView.swift */; };
 		43C6F5D029769FEF00609F16 /* ChallengeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C6F5CF29769FEF00609F16 /* ChallengeView.swift */; };
 		43C6F5D52976C96900609F16 /* TimeSeriesOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C6F5D42976C96900609F16 /* TimeSeriesOverview.swift */; };
@@ -39,8 +41,10 @@
 
 /* Begin PBXFileReference section */
 		43618CA72977D22C003A2016 /* ChallengeRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeRing.swift; sourceTree = "<group>"; };
-		43618CAF2977E03C003A2016 /* Steps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Steps.swift; sourceTree = "<group>"; };
-		43618CB129781986003A2016 /* Challenges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenges.swift; sourceTree = "<group>"; };
+		43618CB129781986003A2016 /* Challenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
+		43618CB529796119003A2016 /* ChallengeOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeOverview.swift; sourceTree = "<group>"; };
+		43618CB929796C26003A2016 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		43618CBB297979BE003A2016 /* challengeData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = challengeData.json; sourceTree = "<group>"; };
 		43C6F5CD29769FC600609F16 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		43C6F5CF29769FEF00609F16 /* ChallengeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeView.swift; sourceTree = "<group>"; };
 		43C6F5D42976C96900609F16 /* TimeSeriesOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSeriesOverview.swift; sourceTree = "<group>"; };
@@ -82,8 +86,7 @@
 		43618CA92977DEFB003A2016 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				43618CAF2977E03C003A2016 /* Steps.swift */,
-				43618CB129781986003A2016 /* Challenges.swift */,
+				43618CB129781986003A2016 /* Challenge.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -92,8 +95,21 @@
 			isa = PBXGroup;
 			children = (
 				43C6F5D82976D17F00609F16 /* DataDummy.swift */,
+				43618CB929796C26003A2016 /* ModelData.swift */,
+				43618CBB297979BE003A2016 /* challengeData.json */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		43618CB829796999003A2016 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				43C6F5D12976C8BE00609F16 /* Charts */,
+				43C6F5CF29769FEF00609F16 /* ChallengeView.swift */,
+				43FE6A712972DF8B00C7D861 /* ContentView.swift */,
+				43C6F5CD29769FC600609F16 /* DetailView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		43C6F5D12976C8BE00609F16 /* Charts */ = {
@@ -101,6 +117,7 @@
 			children = (
 				43C6F5D42976C96900609F16 /* TimeSeriesOverview.swift */,
 				43618CA72977D22C003A2016 /* ChallengeRing.swift */,
+				43618CB529796119003A2016 /* ChallengeOverview.swift */,
 			);
 			path = Charts;
 			sourceTree = "<group>";
@@ -126,13 +143,10 @@
 		43FE6A6E2972DF8B00C7D861 /* HealthTracker */ = {
 			isa = PBXGroup;
 			children = (
+				43FE6A6F2972DF8B00C7D861 /* HealthTrackerApp.swift */,
 				43618CAA2977DF25003A2016 /* Util */,
 				43618CA92977DEFB003A2016 /* Model */,
-				43C6F5D12976C8BE00609F16 /* Charts */,
-				43FE6A6F2972DF8B00C7D861 /* HealthTrackerApp.swift */,
-				43C6F5CF29769FEF00609F16 /* ChallengeView.swift */,
-				43FE6A712972DF8B00C7D861 /* ContentView.swift */,
-				43C6F5CD29769FC600609F16 /* DetailView.swift */,
+				43618CB829796999003A2016 /* Views */,
 				43FE6A732972DF8C00C7D861 /* Assets.xcassets */,
 				43FE6A752972DF8C00C7D861 /* Preview Content */,
 			);
@@ -252,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43FE6A772972DF8C00C7D861 /* Preview Assets.xcassets in Resources */,
+				43618CBC297979BE003A2016 /* challengeData.json in Resources */,
 				43FE6A742972DF8C00C7D861 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,10 +297,11 @@
 				43C6F5D029769FEF00609F16 /* ChallengeView.swift in Sources */,
 				43FE6A722972DF8B00C7D861 /* ContentView.swift in Sources */,
 				43C6F5CE29769FC600609F16 /* DetailView.swift in Sources */,
-				43618CB02977E03C003A2016 /* Steps.swift in Sources */,
+				43618CB629796119003A2016 /* ChallengeOverview.swift in Sources */,
+				43618CBA29796C26003A2016 /* ModelData.swift in Sources */,
 				43618CA82977D22C003A2016 /* ChallengeRing.swift in Sources */,
 				43FE6A702972DF8B00C7D861 /* HealthTrackerApp.swift in Sources */,
-				43618CB229781986003A2016 /* Challenges.swift in Sources */,
+				43618CB229781986003A2016 /* Challenge.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
