@@ -15,18 +15,18 @@ struct DetailView: View {
             //ForEach einfügen und Datenquelle für Challenges anlegen
             VStack {
                 VStack {
-                    Text("Challenge \(challenge.name )")
-                        .font(.title)
+                    //Text("Challenge \(challenge.name )")
+                    //    .font(.title)
                     ChallengeRing(challengeProgress: challenge.progress)
                         .frame(height: 300.0)
-                    Text("\(Int(challenge.today)) / \(Int(challenge.dailyGoal)) \(challenge.unit)")
+                    Text("\(Int(challenge.amountToday)) / \(Int(challenge.dailyGoal)) \(challenge.unit)")
                         .bold()
                     Text("\(Date.now.formatted(date: .abbreviated, time: .omitted))")
                         .font(.caption)
                 }
                 Divider()
                 VStack {
-                    TimeSeriesOverview()
+                    TimeSeriesOverview(challenge: challenge)
                         .padding()
                 }
                 
@@ -34,7 +34,7 @@ struct DetailView: View {
                 .padding()
             }
         }
-        .tabViewStyle(.page)
+        .navigationTitle("Challenge \(challenge.name )")
         .indexViewStyle(.page(backgroundDisplayMode: .always))
     }
 }

@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct Challenge: Identifiable, Hashable, Codable {
+struct Challenge: Identifiable, Codable {
     var id: Int //Alternative: String {name}
     var name: String
     var unit: String
@@ -17,7 +17,15 @@ struct Challenge: Identifiable, Hashable, Codable {
     var symbole: Image {
         Image(systemName: symboleName)
         }
-    //als Funktionen gestalten
-    var today: Double
-    var progress: Double
+    var isSelected: Bool
+    var dailyData: [Date: Double]?
+    //als computed gestalten
+    var amountToday: Double /*{
+        gibt Eintrag für den heutigen Tag aus
+    }*/
+    
+    var progress: Double {
+        amountToday / Double(dailyGoal)
+    }
+        
 }

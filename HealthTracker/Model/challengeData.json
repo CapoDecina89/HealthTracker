@@ -4,22 +4,22 @@
         "unit": "Schritte",
         "dailyGoal": 5500,
         "symboleName": "shoeprints.fill",
-        "today": 3000,
-        "progress": 1.2   },
+        "isSelected": true,
+        "amountToday": 3500      },
     
     {   "id": 2,
         "name": "Schlaf",
         "unit": "h",
         "dailyGoal": 8,
         "symboleName": "bed.double.fill",
-        "today": 4,
-        "progress": 0.5    },
+        "isSelected": true,
+        "amountToday": 7        },
     
     {   "id": 3,
         "name": "Trinken",
         "unit": "ml",
         "dailyGoal": 2000,
         "symboleName": "drop.fill",
-        "today": 1000,
-        "progress": 0.5    }
+        "isSelected": true,
+        "amountToday": 1000      }
 ]

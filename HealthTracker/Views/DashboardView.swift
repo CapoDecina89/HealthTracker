@@ -8,26 +8,13 @@
 import Charts
 import SwiftUI
 
-struct ContentView: View {
-    
-    private enum Destinations {
-        case empty
-        case detail
-        case challenge
-    }
-    //@State private var selection: Destinations?
-    
-    
+struct DashboardView: View {
+    //Ansatz Single Source of Truth
+    //@EnvironmentObject private var challengeData: ChallengeData
     
     var body: some View {
         NavigationStack {
             List {
-                Section{
-                    NavigationLink("Neue Challenge wählen"/*, value: Destinations.challenge*/) {
-                        ChallengeView()
-                    }
-                }
-                
                 ForEach(challenges) { challenge in
                     Section {
                         NavigationLink {
@@ -40,13 +27,22 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("Dashboard")
+            .toolbar {
+                ToolbarItem {
+                    NavigationLink {
+                        ChallengeView()
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                }
+            }
             .listStyle(.insetGrouped)
         }
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct DashboardView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        DashboardView()
     }
 }

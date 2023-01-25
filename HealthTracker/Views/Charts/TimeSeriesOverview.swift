@@ -8,20 +8,40 @@
 import Charts
 import SwiftUI
 
+///View mit Chart und erfasstem Zeitraum
+struct TimeSeriesOverview: View {
+    
+    var challenge: Challenge
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text("Letzte 30 Tage")
+                .foregroundStyle(.secondary)
+            TimeSeriesOverviewChart(challenge: challenge)
+                .frame(height: 100)
+        }
+    }
+}
+
 // ChartLayout
 //umbauen, sodass die TimeSeries abhängig vom Parameter verschiedene Challenges zeigen kann
 struct TimeSeriesOverviewChart: View {
+    
+    var challenge: Challenge
+    
     var body: some View {
+        
+        let goal = challenge.dailyGoal
+        
         Chart(StepsData.last30Days, id: \.day) {
             PointMark(
                 x: .value("Tag", $0.day, unit: .day),
-                y: .value("Schritte", $0.steps))
+                y: .value("Anzahl", $0.steps))
             
             LineMark(
                 x: .value("Tag", $0.day, unit: .day),
-                y: .value("Schritte", $0.steps))
-            //Datenquelle von Art der Challenge übernehmen
-            let goal = StepsData.goalDaily
+                y: .value("Anzahl", $0.steps))
+
             RuleMark(
                 y: .value("Ziel", goal)
             )
@@ -35,21 +55,11 @@ struct TimeSeriesOverviewChart: View {
         }
     }
 }
-    
-struct TimeSeriesOverview: View {
-        var body: some View {
-            VStack(alignment: .leading) {
-                Text("Letzte 30 Tage")
-                    .foregroundStyle(.secondary)
-                TimeSeriesOverviewChart()
-                    .frame(height: 100)
-            }
-        }
-    }
+
     
 struct TimeSeriesOverview_Previews: PreviewProvider {
         static var previews: some View {
-            TimeSeriesOverview()
+            TimeSeriesOverview(challenge: challenges[1])
         }
 }
 
