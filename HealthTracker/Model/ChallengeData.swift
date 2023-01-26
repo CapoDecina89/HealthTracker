@@ -6,18 +6,19 @@
 //
 
 import Foundation
+import Combine
 
 // Neuer Ansatz
- /*
- class ChallengeData: ObservableObject {
-    //Array mit allen Daten der Challenges
-    @Published var challenges: [Challenge]
-    
-    init(challenges: [Challenge]) {
-        self.challenges = challenges
-    }
 
-    static func load<T: Decodable>(_ filename: String) -> T {
+final class ChallengeData: ObservableObject {
+    //Array mit allen Daten der Challenges
+    @Published var challenges: [Challenge] = load("challengeData.json")
+    
+    /*init(challenges: [Challenge]) {
+     self.challenges = challenges
+     }*/
+}
+    /*static*/ func load<T: Decodable>(_ filename: String) -> T {
         let data: Data
 
         guard let file = Bundle.main.url(forResource: filename, withExtension: nil)
@@ -39,7 +40,9 @@ import Foundation
         }
     }
 
-    func save(to filename: String) {
+    /*
+     //Überarbeiten
+     func save(to filename: String) {
             
         let encoder = JSONEncoder()
         do {
@@ -49,10 +52,8 @@ import Foundation
         } catch {
             fatalError("Couldn't save Challenges as \(filename):\n\(error)")
         }
-    }
-    
-}
-*/
+    }*/
+/*
 // Alter Ansatz
 
 //Array mit allen Daten der Challenges
@@ -93,3 +94,4 @@ func save(to filename: String) {
         fatalError("Couldn't save Challenges as \(filename):\n\(error)")
     }
 }
+*/

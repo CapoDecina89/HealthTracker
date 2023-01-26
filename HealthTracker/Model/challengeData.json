@@ -1,25 +1,25 @@
 [
-    {   "id": 1,
+    {   "id": 0,
         "name": "Schritte",
         "unit": "Schritte",
         "dailyGoal": 5500,
         "symboleName": "shoeprints.fill",
-        "isSelected": true,
+        "isActive": true,
         "amountToday": 3500      },
     
-    {   "id": 2,
+    {   "id": 1,
         "name": "Schlaf",
         "unit": "h",
         "dailyGoal": 8,
         "symboleName": "bed.double.fill",
-        "isSelected": true,
+        "isActive": true,
         "amountToday": 7        },
     
-    {   "id": 3,
+    {   "id": 2,
         "name": "Trinken",
         "unit": "ml",
         "dailyGoal": 2000,
         "symboleName": "drop.fill",
-        "isSelected": true,
+        "isActive": false,
         "amountToday": 1000      }
 ]

@@ -23,6 +23,7 @@ struct ChallengeOverview: View {
 }
 
 struct ChallengeOverview_Previews: PreviewProvider {
+    static var challenges = ChallengeData().challenges
     static var previews: some View {
         ChallengeOverview(challenge: challenges[1])
     }

@@ -8,18 +8,20 @@
 import SwiftUI
 
 struct ChallengeView: View {
-    //@EnvironmentObject private var challengeData: ChallengeData
-    @State private var multiSelection = Set<Challenge.ID>()
+    @EnvironmentObject private var challengeData: ChallengeData
+    //@State private var multiSelection = Set<Challenge.ID>()
     
     var body: some View {
         VStack {
-           // Text("Challenges")
+           //Text("Wählen Sie Ihre Challenges:")
             //    .font(.title)
               //  .bold()
-            List(challenges, selection: $multiSelection) { challenge in
+            List(challengeData.challenges /*, selection: $multiSelection*/) { challenge in
                 HStack{
-                    Text(challenge.name)
-                    challenge.symbole
+                    Toggle(isOn: $challengeData.challenges[challenge.id].isActive) {
+                        Text(challenge.name)
+                        challenge.symbole
+                    }
                 }
             }
         }
@@ -30,5 +32,6 @@ struct ChallengeView: View {
 struct ChallengeView_Previews: PreviewProvider {
     static var previews: some View {
         ChallengeView()
+            .environmentObject(ChallengeData())
     }
 }

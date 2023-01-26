@@ -135,6 +135,8 @@ extension Color {
 }
 
 struct ChallengeRing_Previews: PreviewProvider {
+    static var challenges = ChallengeData().challenges
+    
     static var previews: some View {
         ChallengeRing(challengeProgress: challenges[0].progress)
     }

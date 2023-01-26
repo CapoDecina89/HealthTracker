@@ -10,15 +10,22 @@ import SwiftUI
 
 struct DashboardView: View {
     //Ansatz Single Source of Truth
-    //@EnvironmentObject private var challengeData: ChallengeData
+    @EnvironmentObject private var challengeData: ChallengeData
+    
+    ///create an Array of active challenges for use in dashboard
+    var activeChallenges: [Challenge] {
+        challengeData.challenges.filter { challenge in
+            (challenge.isActive)
+        }
+    }
     
     var body: some View {
         NavigationStack {
             List {
-                ForEach(challenges) { challenge in
+                ForEach(activeChallenges) { challenge in
                     Section {
                         NavigationLink {
-                            DetailView(challenge: challenge)
+                            DetailView(selectedChallenge: challenge)
                         } label: {
                             ChallengeOverview(challenge: challenge)
                                 .frame(minHeight: 150)
@@ -37,6 +44,7 @@ struct DashboardView: View {
                 }
             }
             .listStyle(.insetGrouped)
+            .environmentObject(challengeData)
         }
     }
 }
@@ -44,5 +52,6 @@ struct DashboardView: View {
 struct DashboardView_Previews: PreviewProvider {
     static var previews: some View {
         DashboardView()
+            .environmentObject(ChallengeData())
     }
 }

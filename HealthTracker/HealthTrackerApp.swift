@@ -10,12 +10,12 @@ import SwiftUI
 @main
 struct HealthTrackerApp: App {
     //Ansatz Instanz von ChallengeData wir zum Start aus json geladen
-    //@StateObject private var challengeData = ChallengeData(challenges: ChallengeData.load("challengeData.json"))
+    @StateObject private var challengeData = ChallengeData()
     
     var body: some Scene {
         WindowGroup {
             DashboardView()
-                //.environmentObject(challengeData)
+                .environmentObject(challengeData)
         }
         
     }

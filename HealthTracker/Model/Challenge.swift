@@ -17,7 +17,7 @@ struct Challenge: Identifiable, Codable {
     var symbole: Image {
         Image(systemName: symboleName)
         }
-    var isSelected: Bool
+    var isActive: Bool
     var dailyData: [Date: Double]?
     //als computed gestalten
     var amountToday: Double /*{

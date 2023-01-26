@@ -6,27 +6,26 @@
 //
 
 import SwiftUI
-// Anzeige von gewählter Challenge abhängig machen
 // TimeSeries mit Lollipop Funktion erweitern
 struct DetailView: View {
-    var challenge: Challenge
+    ///Challenge object provided by DashboardView
+    var selectedChallenge: Challenge
+    
     var body: some View {
         TabView {
             //ForEach einfügen und Datenquelle für Challenges anlegen
             VStack {
                 VStack {
-                    //Text("Challenge \(challenge.name )")
-                    //    .font(.title)
-                    ChallengeRing(challengeProgress: challenge.progress)
+                    ChallengeRing(challengeProgress: selectedChallenge.progress)
                         .frame(height: 300.0)
-                    Text("\(Int(challenge.amountToday)) / \(Int(challenge.dailyGoal)) \(challenge.unit)")
+                    Text("\(Int(selectedChallenge.amountToday)) / \(Int(selectedChallenge.dailyGoal)) \(selectedChallenge.unit)")
                         .bold()
                     Text("\(Date.now.formatted(date: .abbreviated, time: .omitted))")
                         .font(.caption)
                 }
                 Divider()
                 VStack {
-                    TimeSeriesOverview(challenge: challenge)
+                    TimeSeriesOverview(challenge: selectedChallenge)
                         .padding()
                 }
                 
@@ -34,13 +33,14 @@ struct DetailView: View {
                 .padding()
             }
         }
-        .navigationTitle("Challenge \(challenge.name )")
+        .navigationTitle("Challenge \(selectedChallenge.name )")
         .indexViewStyle(.page(backgroundDisplayMode: .always))
     }
 }
 
 struct DetailView_Previews: PreviewProvider {
+    static var challenges = ChallengeData().challenges
     static var previews: some View {
-        DetailView(challenge: challenges[1])
+        DetailView(selectedChallenge: challenges[1])
     }
 }
