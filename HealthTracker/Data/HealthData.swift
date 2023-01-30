@@ -23,13 +23,13 @@ class HealthData {
     }
     
     private static var allHealthDataTypes: [HKSampleType] {
-        let typeIdentifiers: [String] = [
+        let typeIdentifiersRaw: [String] = [
             HKQuantityTypeIdentifier.stepCount.rawValue,
             HKQuantityTypeIdentifier.dietaryWater.rawValue,
-            HKQuantityTypeIdentifier.numberOfAlcoholicBeverages.rawValue
+            HKQuantityTypeIdentifier.flightsClimbed.rawValue
         ]
         
-        return typeIdentifiers.compactMap { getSampleType(for: $0) }
+        return typeIdentifiersRaw.compactMap { getSampleType(for: $0) }
     }
     
     // MARK: - Authorization

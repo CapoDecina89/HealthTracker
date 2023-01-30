@@ -7,10 +7,12 @@
 
 import Foundation
 import SwiftUI
+import HealthKit
 
-struct Challenge: Identifiable, Codable {
+struct Challenge: Identifiable, Codable, Hashable {
     var id: Int //Alternative: String {name}
     var name: String
+    var typeIdentifier : String
     var unit: String
     //var dataType: String
     var dailyGoal: Int
@@ -21,12 +23,12 @@ struct Challenge: Identifiable, Codable {
     var isActive: Bool
     var dailyData: [DailyData]?
     //als computed gestalten
-    var amountToday: Double /*{
-        gibt Eintrag für den heutigen Tag aus
-    }*/
+    var amountToday: Double {
+        dailyData?.last?.value ?? 0
+    }
     
     var progress: Double {
-        amountToday / Double(dailyGoal)
+        (amountToday ) / Double(dailyGoal)
     }
         
 }

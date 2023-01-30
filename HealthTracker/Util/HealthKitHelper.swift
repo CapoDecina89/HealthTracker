@@ -51,10 +51,10 @@ private func preferredUnit(for identifier: String, sampleType: HKSampleType? = n
         let quantityTypeIdentifier = HKQuantityTypeIdentifier(rawValue: identifier)
         
         switch quantityTypeIdentifier {
-        case .stepCount:
+        case .stepCount, .flightsClimbed:
             unit = .count()
-        case .distanceWalkingRunning, .sixMinuteWalkTestDistance:
-            unit = .meter()
+        case .dietaryWater:
+            unit = .literUnit(with: .milli)
         default:
             break
         }

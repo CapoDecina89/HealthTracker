@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DailyData: Codable {
+struct DailyData: Codable, Hashable {
     var date: Date
     var value: Double
 }

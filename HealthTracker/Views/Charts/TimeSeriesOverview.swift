@@ -18,7 +18,7 @@ struct TimeSeriesOverview: View {
             Text("Letzte 30 Tage")
                 .foregroundStyle(.secondary)
             TimeSeriesOverviewChart(challenge: challenge)
-                .frame(height: 100)
+                .frame(height: 150)
         }
     }
 }
@@ -33,14 +33,14 @@ struct TimeSeriesOverviewChart: View {
         
         let goal = challenge.dailyGoal
         
-        Chart(StepsData.last30Days, id: \.day) {
+        Chart(challenge.dailyData ?? [DailyData(date: Date(), value: 0)], id: \.date) {
             PointMark(
-                x: .value("Tag", $0.day, unit: .day),
-                y: .value("Anzahl", $0.steps))
+                x: .value("Tag", $0.date, unit: .day),
+                y: .value("Anzahl", $0.value))
             
             LineMark(
-                x: .value("Tag", $0.day, unit: .day),
-                y: .value("Anzahl", $0.steps))
+                x: .value("Tag", $0.date, unit: .day),
+                y: .value("Anzahl", $0.value))
 
             RuleMark(
                 y: .value("Ziel", goal)
@@ -60,7 +60,7 @@ struct TimeSeriesOverviewChart: View {
 struct TimeSeriesOverview_Previews: PreviewProvider {
     static var challenges = ChallengeData().challenges
     static var previews: some View {
-            TimeSeriesOverview(challenge: challenges[0])
+            TimeSeriesOverview(challenge: challenges[2])
         }
 }
 

@@ -1,25 +1,25 @@
 [
     {   "id": 0,
         "name": "Schritte",
+        "typeIdentifier": "HKQuantityTypeIdentifierStepCount",
         "unit": "Schritte",
         "dailyGoal": 5500,
         "symboleName": "shoeprints.fill",
-        "isActive": true,
-        "amountToday": 3500      },
+        "isActive": true     },
     
     {   "id": 1,
-        "name": "Schlaf",
-        "unit": "h",
-        "dailyGoal": 8,
-        "symboleName": "bed.double.fill",
-        "isActive": true,
-        "amountToday": 7        },
+        "name": "Treppen",
+        "typeIdentifier": "HKQuantityTypeIdentifierFlightsClimbed",
+        "unit": "Treppen",
+        "dailyGoal": 5,
+        "symboleName": "stairs",
+        "isActive": true      },
     
     {   "id": 2,
         "name": "Trinken",
+        "typeIdentifier": "HKQuantityTypeIdentifierDietaryWater",
         "unit": "ml",
         "dailyGoal": 2000,
         "symboleName": "drop.fill",
-        "isActive": false,
-        "amountToday": 1000      }
+        "isActive": false     }
 ]

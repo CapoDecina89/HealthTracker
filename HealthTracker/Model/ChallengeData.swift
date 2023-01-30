@@ -30,7 +30,10 @@ final class ChallengeData: ObservableObject {
             if success {
                 print("HealthKit authorization request was successful!")
                 //perform the query and update dailyData
-                self.queryDailyData()
+                for challenge in self.challenges {
+                    self.queryDailyData(for: challenge)
+                }
+                
             } else {
                 print("HealthKit authorization was not successful.")
             }
@@ -38,23 +41,25 @@ final class ChallengeData: ObservableObject {
         
     }
     
-    func queryDailyData() {
+    func queryDailyData(for challenge: Challenge) {
         
         // Create a 1-day interval.
         let daily = DateComponents(day: 1)
-        
+            
         // Set the anchor for 3 a.m. on Monday.
         let anchorDate = createAnchorDate()
         
-        guard let quantityType = HKObjectType.quantityType(forIdentifier: .stepCount) else {
+        let typeIdentifier = HKQuantityTypeIdentifier(rawValue: challenge.typeIdentifier)
+        
+        guard let quantityType = HKObjectType.quantityType(forIdentifier: typeIdentifier) else {
             fatalError("*** Unable to create a step count type ***")
         }
-        
+            
         //How much days to go back in time
         //guard let thirtyDaysAgo = Calendar.current.date(byAdding: DateComponents(day: -7), to: Date()) else {
-          //  fatalError("*** Unable to create a date thirty days ago ***")
+            //  fatalError("*** Unable to create a date thirty days ago ***")
         //}
-        
+            
         //predicate for setting the querys timescope
         //let oneMonthAgo = HKQuery.predicateForSamples(withStart: thirtyDaysAgo, end: nil, options: .strictStartDate)
         
@@ -64,10 +69,10 @@ final class ChallengeData: ObservableObject {
                                                 options: .cumulativeSum,
                                                 anchorDate: anchorDate,
                                                 intervalComponents: daily)
-        
+            
         // Set the results handler.
         query.initialResultsHandler = { query, results, error in
-            
+                
             // Handle errors here.
             if let error = error as? HKError {
                 switch (error.code) {
@@ -79,18 +84,17 @@ final class ChallengeData: ObservableObject {
                     return
                 }
             }
-            
+                
             if let statsCollection = results {
-                self.updateDailyData(statsCollection)
+                self.updateDailyData(statsCollection, challenge)
             } else {
                 assertionFailure("Handling error")
             }
         }
         healthStore.execute(query)
-        
     }
-    
-    func updateDailyData(_ statsCollection: HKStatisticsCollection) {
+
+    func updateDailyData(_ statsCollection: HKStatisticsCollection, _ challenge: Challenge) {
         DispatchQueue.main.async {
             // Array for plotting the data
             var dailyData: [DailyData] = []
@@ -105,66 +109,48 @@ final class ChallengeData: ObservableObject {
             statsCollection.enumerateStatistics(from: startDate, to: endDate) { (statistics, stop) in
                 var dataValue = DailyData(date: statistics.startDate,
                                           value: 0)
-                if let quantity = statistics.sumQuantity() {
-                    dataValue.value = quantity.doubleValue(for: .count())
+                
+                if let quantity = statistics.sumQuantity(),
+                   let unit = preferredUnit(for: challenge.typeIdentifier) {
+                    dataValue.value = quantity.doubleValue(for: unit)
                 }
                 // Extract each days data.
+                print(dailyData)
                 dailyData.append(dataValue)
             }
-            //for schleife für alle Challenges erstellen
-            self.challenges[0].dailyData = dailyData
+            self.challenges[challenge.id].dailyData = dailyData
             
             //Umwandlung in Dictionary
             //self.challenges[0].dailyData = Dictionary(dailyData, uniquingKeysWith: { _, last in last})
         }
-        
     }
     
-            
-     /*   // Create a query for each data type.
-        for challenge in challenges {
-            // Set dates
-            let now = Date()
-            let startDate = getLastWeekStartDate()
-            let endDate = now
-            
-            let predicate = createLastWeekPredicate()
-            let dateInterval = DateComponents(day: 1)
-            
-            // Process data.
-            let statisticsOptions = getStatisticsOptions(for: challenge.dataType)
-            let initialResultsHandler: (HKStatisticsCollection) -> Void = { (statisticsCollection) in
-                var dailyData: [Date: Double] = [:]
-                statisticsCollection.enumerateStatistics(from: startDate, to: endDate) { (statistics, stop) in
-                    let statisticsQuantity = getStatisticsQuantity(for: statistics, with: statisticsOptions)
-                    if let unit = preferredUnit(for: challenge.dataType),
-                        let value = statisticsQuantity?.doubleValue(for: unit) {
-                        dailyData.append(value)
-                    }
-                }
-                
-                self.challenges[challenge.id].dailyData = dailyData
-                
-                completion()
-            }
-            
-            // Fetch statistics.
-            HealthData.fetchStatistics(with: HKQuantityTypeIdentifier(rawValue: challenge.dataType),
-                                       predicate: predicate,
-                                       options: statisticsOptions,
-                                       startDate: startDate,
-                                       interval: dateInterval,
-                                       completion: initialResultsHandler)
-        }
-    }*/
+    func saveToJSON() {
+        
+        // Find Documents directory
+        let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appending(path: "challengeData.json")
+        // Encoder
+        let encoder = JSONEncoder()
+        encoder.dateEncodingStrategy = .iso8601
+       do {
+           let encodedChallenges = try encoder.encode(challenges)
+           try encodedChallenges.write(to: documentsURL, options: .noFileProtection)
+           
+       } catch {
+           fatalError("Couldn't save Challenges as challengeData.json to Documents Directory:\n\(error)")
+       }
+   }
 }
 
-    /*static*/ func load<T: Decodable>(_ filename: String) -> T {
+    func load<T: Decodable>(_ filename: String) -> T {
         let data: Data
-
-        guard let file = Bundle.main.url(forResource: filename, withExtension: nil)
-        else {
-            fatalError("Couldn't find \(filename) in main bundle.")
+        let documentsURL = FileManager.default.urls(for:.documentDirectory, in:.userDomainMask).first?.appending(path: filename)
+        let file: URL
+        //look for stored data in documents folder of app's container, if not found, use default in bundle
+        if FileManager.default.fileExists(atPath: documentsURL?.relativePath ?? "nil") {
+            file = documentsURL!
+        } else {
+            file = Bundle.main.url(forResource: filename, withExtension: nil)!
         }
 
         do {
@@ -175,66 +161,9 @@ final class ChallengeData: ObservableObject {
 
         do {
             let decoder = JSONDecoder()
+            decoder.dateDecodingStrategy = .iso8601
             return try decoder.decode(T.self, from: data)
         } catch {
             fatalError("Couldn't parse \(filename) as \(T.self):\n\(error)")
         }
     }
-
-    
-
-    /*
-     //Überarbeiten
-     func save(to filename: String) {
-            
-        let encoder = JSONEncoder()
-        do {
-            let encodedChallenges = try encoder.encode(challenges)
-            try encodedChallenges.write(to: Bundle.main.bundleURL.appendingPathComponent("challengeData").appendingPathExtension(for: .json), options: .noFileProtection)
-            
-        } catch {
-            fatalError("Couldn't save Challenges as \(filename):\n\(error)")
-        }
-    }*/
-/*
-// Alter Ansatz
-
-//Array mit allen Daten der Challenges
-var challenges: [Challenge] = load("challengeDataNew.json")
-
-func load<T: Decodable>(_ filename: String) -> T {
-    let data: Data
-
-    guard let file = Bundle.main.url(forResource: filename, withExtension: nil)
-    else {
-        fatalError("Couldn't find \(filename) in main bundle.")
-    }
-
-    do {
-        data = try Data(contentsOf: file)
-    } catch {
-        fatalError("Couldn't load \(filename) from main bundle:\n\(error)")
-    }
-
-    do {
-        let decoder = JSONDecoder()
-        decoder.dateDecodingStrategy = .iso8601
-        return try decoder.decode(T.self, from: data)
-    } catch {
-        fatalError("Couldn't parse \(filename) as \(T.self):\n\(error)")
-    }
-}
-
-func save(to filename: String) {
-        
-    let encoder = JSONEncoder()
-    encoder.dateEncodingStrategy = .iso8601
-    do {
-        let encodedChallenges = try encoder.encode(challenges)
-        try encodedChallenges.write(to: Bundle.main.bundleURL.appendingPathComponent(filename).appendingPathExtension(for: .json), options: .noFileProtection)
-        
-    } catch {
-        fatalError("Couldn't save Challenges as \(filename):\n\(error)")
-    }
-}
-*/
