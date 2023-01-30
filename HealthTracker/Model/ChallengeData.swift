@@ -91,10 +91,32 @@ final class ChallengeData: ObservableObject {
     }
     
     func updateDailyData(_ statsCollection: HKStatisticsCollection) {
-        for challenge in self.challenges {
-            <#body#>
+        DispatchQueue.main.async {
+            // Array for plotting the data
+            var dailyData: [DailyData] = []
+
+            //Set startDate
+            guard let startDate = Calendar.current.date(byAdding: DateComponents(day: -30), to: Date()) else {
+                fatalError("*** Unable to create a date thirty days ago ***")
+            }
+                let endDate = Date()
+                    
+            // Enumerate over all the statistics objects between the start and end dates.
+            statsCollection.enumerateStatistics(from: startDate, to: endDate) { (statistics, stop) in
+                var dataValue = DailyData(date: statistics.startDate,
+                                          value: 0)
+                if let quantity = statistics.sumQuantity() {
+                    dataValue.value = quantity.doubleValue(for: .count())
+                }
+                // Extract each days data.
+                dailyData.append(dataValue)
+            }
+            //for schleife für alle Challenges erstellen
+            self.challenges[0].dailyData = dailyData
+            
+            //Umwandlung in Dictionary
+            //self.challenges[0].dailyData = Dictionary(dailyData, uniquingKeysWith: { _, last in last})
         }
-        
         
     }
     
