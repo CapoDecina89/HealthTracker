@@ -7,17 +7,136 @@
 
 import Foundation
 import Combine
+import HealthKit
 
 // Neuer Ansatz
 
 final class ChallengeData: ObservableObject {
     //Array mit allen Daten der Challenges
-    @Published var challenges: [Challenge] = load("challengeData.json")
+    @Published var challenges: [Challenge]
     
-    /*init(challenges: [Challenge]) {
-     self.challenges = challenges
-     }*/
+    let healthStore = HealthData.healthStore
+    
+    init() {
+        challenges = load("challengeData.json")
+        let readTypes = Set(HealthData.readDataTypes)
+        let shareTypes = Set(HealthData.shareDataTypes)
+    
+        print("Requesting HealthKit authorization...")
+        self.healthStore.requestAuthorization(toShare: shareTypes, read: readTypes) { (success, error)  in
+            if let error = error {
+                print("requestAuthorization error:", error.localizedDescription)
+            }
+            if success {
+                print("HealthKit authorization request was successful!")
+                //perform the query and update dailyData
+                self.queryDailyData()
+            } else {
+                print("HealthKit authorization was not successful.")
+            }
+        }
+        
+    }
+    
+    func queryDailyData() {
+        
+        // Create a 1-day interval.
+        let daily = DateComponents(day: 1)
+        
+        // Set the anchor for 3 a.m. on Monday.
+        let anchorDate = createAnchorDate()
+        
+        guard let quantityType = HKObjectType.quantityType(forIdentifier: .stepCount) else {
+            fatalError("*** Unable to create a step count type ***")
+        }
+        
+        //How much days to go back in time
+        //guard let thirtyDaysAgo = Calendar.current.date(byAdding: DateComponents(day: -7), to: Date()) else {
+          //  fatalError("*** Unable to create a date thirty days ago ***")
+        //}
+        
+        //predicate for setting the querys timescope
+        //let oneMonthAgo = HKQuery.predicateForSamples(withStart: thirtyDaysAgo, end: nil, options: .strictStartDate)
+        
+        // Create the query.
+        let query = HKStatisticsCollectionQuery(quantityType: quantityType,
+                                                quantitySamplePredicate: nil,//oneMonthAgo,
+                                                options: .cumulativeSum,
+                                                anchorDate: anchorDate,
+                                                intervalComponents: daily)
+        
+        // Set the results handler.
+        query.initialResultsHandler = { query, results, error in
+            
+            // Handle errors here.
+            if let error = error as? HKError {
+                switch (error.code) {
+                case .errorDatabaseInaccessible:
+                    print("HealthKit couldn't access the database because the device is locked.")
+                    return
+                default:
+                    print("other HealthKit errors.")
+                    return
+                }
+            }
+            
+            if let statsCollection = results {
+                self.updateDailyData(statsCollection)
+            } else {
+                assertionFailure("Handling error")
+            }
+        }
+        healthStore.execute(query)
+        
+    }
+    
+    func updateDailyData(_ statsCollection: HKStatisticsCollection) {
+        for challenge in self.challenges {
+            <#body#>
+        }
+        
+        
+    }
+    
+            
+     /*   // Create a query for each data type.
+        for challenge in challenges {
+            // Set dates
+            let now = Date()
+            let startDate = getLastWeekStartDate()
+            let endDate = now
+            
+            let predicate = createLastWeekPredicate()
+            let dateInterval = DateComponents(day: 1)
+            
+            // Process data.
+            let statisticsOptions = getStatisticsOptions(for: challenge.dataType)
+            let initialResultsHandler: (HKStatisticsCollection) -> Void = { (statisticsCollection) in
+                var dailyData: [Date: Double] = [:]
+                statisticsCollection.enumerateStatistics(from: startDate, to: endDate) { (statistics, stop) in
+                    let statisticsQuantity = getStatisticsQuantity(for: statistics, with: statisticsOptions)
+                    if let unit = preferredUnit(for: challenge.dataType),
+                        let value = statisticsQuantity?.doubleValue(for: unit) {
+                        dailyData.append(value)
+                    }
+                }
+                
+                self.challenges[challenge.id].dailyData = dailyData
+                
+                completion()
+            }
+            
+            // Fetch statistics.
+            HealthData.fetchStatistics(with: HKQuantityTypeIdentifier(rawValue: challenge.dataType),
+                                       predicate: predicate,
+                                       options: statisticsOptions,
+                                       startDate: startDate,
+                                       interval: dateInterval,
+                                       completion: initialResultsHandler)
+        }
+    }*/
 }
+
     /*static*/ func load<T: Decodable>(_ filename: String) -> T {
         let data: Data
 
@@ -39,6 +158,8 @@ final class ChallengeData: ObservableObject {
             fatalError("Couldn't parse \(filename) as \(T.self):\n\(error)")
         }
     }
+
+    
 
     /*
      //Überarbeiten

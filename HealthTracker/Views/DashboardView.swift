@@ -12,7 +12,7 @@ struct DashboardView: View {
     //Ansatz Single Source of Truth
     @EnvironmentObject private var challengeData: ChallengeData
     
-    ///create an Array of active challenges for use in dashboard
+    ///create an Array of active challenges for use in Dashboard
     var activeChallenges: [Challenge] {
         challengeData.challenges.filter { challenge in
             (challenge.isActive)

@@ -60,7 +60,7 @@ struct TimeSeriesOverviewChart: View {
 struct TimeSeriesOverview_Previews: PreviewProvider {
     static var challenges = ChallengeData().challenges
     static var previews: some View {
-            TimeSeriesOverview(challenge: challenges[1])
+            TimeSeriesOverview(challenge: challenges[0])
         }
 }
 

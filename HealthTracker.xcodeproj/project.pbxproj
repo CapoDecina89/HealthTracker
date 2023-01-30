@@ -17,6 +17,9 @@
 		43C6F5D029769FEF00609F16 /* ChallengeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C6F5CF29769FEF00609F16 /* ChallengeView.swift */; };
 		43C6F5D52976C96900609F16 /* TimeSeriesOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C6F5D42976C96900609F16 /* TimeSeriesOverview.swift */; };
 		43C6F5D92976D17F00609F16 /* DataDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C6F5D82976D17F00609F16 /* DataDummy.swift */; };
+		43D6E4362982AD2F0038ADAB /* HealthData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D6E4352982AD2F0038ADAB /* HealthData.swift */; };
+		43D6E4382982AE6D0038ADAB /* HealthKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D6E4372982AE6D0038ADAB /* HealthKitHelper.swift */; };
+		43D6E43D29840D5B0038ADAB /* DailyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D6E43C29840D5B0038ADAB /* DailyData.swift */; };
 		43FE6A702972DF8B00C7D861 /* HealthTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FE6A6F2972DF8B00C7D861 /* HealthTrackerApp.swift */; };
 		43FE6A722972DF8B00C7D861 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FE6A712972DF8B00C7D861 /* DashboardView.swift */; };
 		43FE6A742972DF8C00C7D861 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43FE6A732972DF8C00C7D861 /* Assets.xcassets */; };
@@ -42,7 +45,6 @@
 
 /* Begin PBXFileReference section */
 		4326EE732981B84E0002057D /* challengeDataNew.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = challengeDataNew.json; sourceTree = "<group>"; };
-		4326EE752981C06B0002057D /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		43618CA72977D22C003A2016 /* ChallengeRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeRing.swift; sourceTree = "<group>"; };
 		43618CB129781986003A2016 /* Challenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
 		43618CB529796119003A2016 /* ChallengeOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeOverview.swift; sourceTree = "<group>"; };
@@ -52,6 +54,11 @@
 		43C6F5CF29769FEF00609F16 /* ChallengeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeView.swift; sourceTree = "<group>"; };
 		43C6F5D42976C96900609F16 /* TimeSeriesOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSeriesOverview.swift; sourceTree = "<group>"; };
 		43C6F5D82976D17F00609F16 /* DataDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDummy.swift; sourceTree = "<group>"; };
+		43D6E4352982AD2F0038ADAB /* HealthData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthData.swift; sourceTree = "<group>"; };
+		43D6E4372982AE6D0038ADAB /* HealthKitHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitHelper.swift; sourceTree = "<group>"; };
+		43D6E4392983EDA70038ADAB /* HealthTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HealthTracker.entitlements; sourceTree = "<group>"; };
+		43D6E43C29840D5B0038ADAB /* DailyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyData.swift; sourceTree = "<group>"; };
+		43D6E43E298424030038ADAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		43FE6A6C2972DF8B00C7D861 /* HealthTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43FE6A6F2972DF8B00C7D861 /* HealthTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthTrackerApp.swift; sourceTree = "<group>"; };
 		43FE6A712972DF8B00C7D861 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
@@ -91,6 +98,7 @@
 			children = (
 				43618CB929796C26003A2016 /* ChallengeData.swift */,
 				43618CBB297979BE003A2016 /* challengeData.json */,
+				43D6E43C29840D5B0038ADAB /* DailyData.swift */,
 				4326EE732981B84E0002057D /* challengeDataNew.json */,
 				43618CB129781986003A2016 /* Challenge.swift */,
 			);
@@ -101,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				43C6F5D82976D17F00609F16 /* DataDummy.swift */,
+				43D6E4372982AE6D0038ADAB /* HealthKitHelper.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -126,6 +135,14 @@
 			path = Charts;
 			sourceTree = "<group>";
 		};
+		43D6E4342982AD0E0038ADAB /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				43D6E4352982AD2F0038ADAB /* HealthData.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		43FE6A632972DF8B00C7D861 = {
 			isa = PBXGroup;
 			children = (
@@ -147,9 +164,11 @@
 		43FE6A6E2972DF8B00C7D861 /* HealthTracker */ = {
 			isa = PBXGroup;
 			children = (
+				43D6E43E298424030038ADAB /* Info.plist */,
+				43D6E4392983EDA70038ADAB /* HealthTracker.entitlements */,
 				43FE6A6F2972DF8B00C7D861 /* HealthTrackerApp.swift */,
-				4326EE752981C06B0002057D /* MyPlayground.playground */,
 				43618CAA2977DF25003A2016 /* Util */,
+				43D6E4342982AD0E0038ADAB /* Data */,
 				43618CA92977DEFB003A2016 /* Model */,
 				43618CB829796999003A2016 /* Views */,
 				43FE6A732972DF8C00C7D861 /* Assets.xcassets */,
@@ -300,6 +319,7 @@
 			files = (
 				43C6F5D92976D17F00609F16 /* DataDummy.swift in Sources */,
 				43C6F5D52976C96900609F16 /* TimeSeriesOverview.swift in Sources */,
+				43D6E43D29840D5B0038ADAB /* DailyData.swift in Sources */,
 				43C6F5D029769FEF00609F16 /* ChallengeView.swift in Sources */,
 				43FE6A722972DF8B00C7D861 /* DashboardView.swift in Sources */,
 				43C6F5CE29769FC600609F16 /* DetailView.swift in Sources */,
@@ -307,6 +327,8 @@
 				43618CBA29796C26003A2016 /* ChallengeData.swift in Sources */,
 				43618CA82977D22C003A2016 /* ChallengeRing.swift in Sources */,
 				43FE6A702972DF8B00C7D861 /* HealthTrackerApp.swift in Sources */,
+				43D6E4362982AD2F0038ADAB /* HealthData.swift in Sources */,
+				43D6E4382982AE6D0038ADAB /* HealthKitHelper.swift in Sources */,
 				43618CB229781986003A2016 /* Challenge.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -460,13 +482,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = HealthTracker/HealthTracker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"HealthTracker/Preview Content\"";
 				DEVELOPMENT_TEAM = H26FYZ7CJ8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = HealthTracker/Info.plist;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Erlaube HealthTracker Daten zu exportieren";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Erlaube HealthTracker Daten zu importieren";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -489,13 +514,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = HealthTracker/HealthTracker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"HealthTracker/Preview Content\"";
 				DEVELOPMENT_TEAM = H26FYZ7CJ8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = HealthTracker/Info.plist;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Erlaube HealthTracker Daten zu exportieren";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Erlaube HealthTracker Daten zu importieren";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
