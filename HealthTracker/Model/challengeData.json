@@ -13,7 +13,7 @@
         "unit": "Treppen",
         "dailyGoal": 5,
         "symboleName": "stairs",
-        "isActive": true      },
+        "isActive": false      },
     
     {   "id": 2,
         "name": "Trinken",

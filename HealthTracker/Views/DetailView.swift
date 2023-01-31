@@ -12,29 +12,26 @@ struct DetailView: View {
     var selectedChallenge: Challenge
     
     var body: some View {
-        TabView {
-            //ForEach einfügen und Datenquelle für Challenges anlegen
+        VStack {
             VStack {
-                VStack {
-                    ChallengeRing(challengeProgress: selectedChallenge.progress)
-                        .frame(height: 300.0)
-                    Text("\(Int(selectedChallenge.amountToday)) / \(Int(selectedChallenge.dailyGoal)) \(selectedChallenge.unit)")
-                        .bold()
-                    Text("\(Date.now.formatted(date: .abbreviated, time: .omitted))")
-                        .font(.caption)
-                }
-                Divider()
-                VStack {
-                    TimeSeriesOverview(challenge: selectedChallenge)
-                        .padding()
-                }
-                
-                Spacer()
-                .padding()
+                ChallengeRing(challengeProgress: selectedChallenge.progress)
+                    .frame(height: 300.0)
+                Text("\(Int(selectedChallenge.amountToday)) / \(Int(selectedChallenge.dailyGoal)) \(selectedChallenge.unit)")
+                    .bold()
+                Text("\(Date.now.formatted(date: .abbreviated, time: .omitted))")
+                    .font(.caption)
             }
+            Divider()
+            VStack {
+                TimeSeriesOverview(challenge: selectedChallenge)
+                    .padding()
+            }
+                
+            Spacer()
+            .padding()
+            .navigationTitle("Challenge \(selectedChallenge.name )")
+            .indexViewStyle(.page(backgroundDisplayMode: .always))
         }
-        .navigationTitle("Challenge \(selectedChallenge.name )")
-        .indexViewStyle(.page(backgroundDisplayMode: .always))
     }
 }
 
