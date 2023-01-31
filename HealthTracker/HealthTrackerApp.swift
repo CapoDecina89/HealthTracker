@@ -23,6 +23,11 @@ struct HealthTrackerApp: App {
             if phase == .background {
                 challengeData.saveToJSON()
             }
+            if phase == .active {
+                for challenge in challengeData.challenges {
+                    challengeData.queryDailyData(for: challenge)
+                }
+            }
             
         }
         

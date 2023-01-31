@@ -17,12 +17,12 @@ final class ChallengeData: ObservableObject {
     
     let healthStore = HealthData.healthStore
     
+    // init instance of ChallengeData by importing "challengeData.json" & request HealthKit authorization
     init() {
         challenges = load("challengeData.json")
+        print("Requesting HealthKit authorization...")
         let readTypes = Set(HealthData.readDataTypes)
         let shareTypes = Set(HealthData.shareDataTypes)
-    
-        print("Requesting HealthKit authorization...")
         self.healthStore.requestAuthorization(toShare: shareTypes, read: readTypes) { (success, error)  in
             if let error = error {
                 print("requestAuthorization error:", error.localizedDescription)
@@ -38,9 +38,9 @@ final class ChallengeData: ObservableObject {
                 print("HealthKit authorization was not successful.")
             }
         }
-        
     }
     
+    /// Set and execute a query on the user's healthstore for last 30 days data relevant for the challenges
     func queryDailyData(for challenge: Challenge) {
         
         // Create a 1-day interval.
@@ -52,20 +52,20 @@ final class ChallengeData: ObservableObject {
         let typeIdentifier = HKQuantityTypeIdentifier(rawValue: challenge.typeIdentifier)
         
         guard let quantityType = HKObjectType.quantityType(forIdentifier: typeIdentifier) else {
-            fatalError("*** Unable to create a step count type ***")
+            fatalError("*** Unable to create a matching quantityType ***")
         }
             
         //How much days to go back in time
-        //guard let thirtyDaysAgo = Calendar.current.date(byAdding: DateComponents(day: -7), to: Date()) else {
-            //  fatalError("*** Unable to create a date thirty days ago ***")
-        //}
+        guard let thirtyDaysAgo = Calendar.current.date(byAdding: DateComponents(day: -30), to: Date()) else {
+              fatalError("*** Unable to create a date thirty days ago ***")
+        }
             
         //predicate for setting the querys timescope
-        //let oneMonthAgo = HKQuery.predicateForSamples(withStart: thirtyDaysAgo, end: nil, options: .strictStartDate)
+        let oneMonthAgo = HKQuery.predicateForSamples(withStart: thirtyDaysAgo, end: nil, options: .strictStartDate)
         
         // Create the query.
         let query = HKStatisticsCollectionQuery(quantityType: quantityType,
-                                                quantitySamplePredicate: nil,//oneMonthAgo,
+                                                quantitySamplePredicate: oneMonthAgo,
                                                 options: .cumulativeSum,
                                                 anchorDate: anchorDate,
                                                 intervalComponents: daily)
@@ -94,6 +94,7 @@ final class ChallengeData: ObservableObject {
         healthStore.execute(query)
     }
 
+    /// processes the HKStatisticsCollection provided by `queryDailyData(for:)` and writes the data to `challenge.dailyData` for each challenge.
     func updateDailyData(_ statsCollection: HKStatisticsCollection, _ challenge: Challenge) {
         DispatchQueue.main.async {
             // Array for plotting the data
@@ -125,6 +126,7 @@ final class ChallengeData: ObservableObject {
         }
     }
     
+    /// writes `self.challenges` to `challenge.json` in the document directory
     func saveToJSON() {
         
         // Find Documents directory
@@ -133,7 +135,7 @@ final class ChallengeData: ObservableObject {
         let encoder = JSONEncoder()
         encoder.dateEncodingStrategy = .iso8601
        do {
-           let encodedChallenges = try encoder.encode(challenges)
+           let encodedChallenges = try encoder.encode(self.challenges)
            try encodedChallenges.write(to: documentsURL, options: .noFileProtection)
            
        } catch {
@@ -141,7 +143,7 @@ final class ChallengeData: ObservableObject {
        }
    }
 }
-
+    
     func load<T: Decodable>(_ filename: String) -> T {
         let data: Data
         let documentsURL = FileManager.default.urls(for:.documentDirectory, in:.userDomainMask).first?.appending(path: filename)
