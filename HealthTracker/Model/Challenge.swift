@@ -12,6 +12,7 @@ import HealthKit
 struct Challenge: Identifiable, Codable, Hashable {
     var id: Int //Alternative: String {name}
     var name: String
+    var description: String
     var typeIdentifier : String
     var unit: String
     //var dataType: String
@@ -30,6 +31,5 @@ struct Challenge: Identifiable, Codable, Hashable {
     var progress: Double {
         (amountToday ) / Double(dailyGoal)
     }
-        
 }
 

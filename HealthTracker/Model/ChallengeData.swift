@@ -15,15 +15,13 @@ final class ChallengeData: ObservableObject {
     //Array mit allen Daten der Challenges
     @Published var challenges: [Challenge]
     
-    let healthStore = HealthData.healthStore
-    
     // init instance of ChallengeData by importing "challengeData.json" & request HealthKit authorization
     init() {
         challenges = load("challengeData.json")
         print("Requesting HealthKit authorization...")
         let readTypes = Set(HealthData.readDataTypes)
         let shareTypes = Set(HealthData.shareDataTypes)
-        self.healthStore.requestAuthorization(toShare: shareTypes, read: readTypes) { (success, error)  in
+        HealthData.healthStore.requestAuthorization(toShare: shareTypes, read: readTypes) { (success, error)  in
             if let error = error {
                 print("requestAuthorization error:", error.localizedDescription)
             }
@@ -91,7 +89,7 @@ final class ChallengeData: ObservableObject {
                 assertionFailure("Handling error")
             }
         }
-        healthStore.execute(query)
+        HealthData.healthStore.execute(query)
     }
 
     /// processes the HKStatisticsCollection provided by `queryDailyData(for:)` and writes the data to `challenge.dailyData` for each challenge.

@@ -1,6 +1,7 @@
 [
     {   "id": 0,
         "name": "Schritte",
+        "description": "Regelmäßige Bewegung ist wichtig für die Gesundheit. Versuche jeden Tag mindestens 5500 Schritte zu gehen.",
         "typeIdentifier": "HKQuantityTypeIdentifierStepCount",
         "unit": "Schritte",
         "dailyGoal": 5500,
@@ -10,6 +11,7 @@
     {   "id": 1,
         "name": "Treppen",
         "typeIdentifier": "HKQuantityTypeIdentifierFlightsClimbed",
+        "description": "Team Aufzug oder Team Treppe? Nimm jeden Tag mindestens 5-mal die Treppe.",
         "unit": "Treppen",
         "dailyGoal": 5,
         "symboleName": "stairs",
@@ -17,6 +19,7 @@
     
     {   "id": 2,
         "name": "Trinken",
+        "description": "Dein Körper besteht gut zur Hälfte aus Wasser. Zeit aufzufüllen, mit mindestens 2000 ml.",
         "typeIdentifier": "HKQuantityTypeIdentifierDietaryWater",
         "unit": "ml",
         "dailyGoal": 2000,

@@ -9,18 +9,19 @@ import SwiftUI
 
 struct ChallengeView: View {
     @EnvironmentObject private var challengeData: ChallengeData
-    //@State private var multiSelection = Set<Challenge.ID>()
-    
+        
     var body: some View {
-        VStack {
-           //Text("Wählen Sie Ihre Challenges:")
-            //    .font(.title)
-              //  .bold()
-            List(challengeData.challenges /*, selection: $multiSelection*/) { challenge in
-                HStack{
-                    Toggle(isOn: $challengeData.challenges[challenge.id].isActive) {
-                        Text(challenge.name)
-                        challenge.symbole
+        List{
+            Section(header: Text("Wählen Sie Ihre Challenges:")) {
+                ForEach(challengeData.challenges) { challenge in
+                    HStack{
+                        Toggle(isOn: $challengeData.challenges[challenge.id].isActive) {
+                            Text(challenge.name)
+                            challenge.symbole
+                                .dynamicTypeSize(.large)
+                                .bold()
+                            Text(challenge.description)
+                        }
                     }
                 }
             }
