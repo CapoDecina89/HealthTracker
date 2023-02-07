@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import HealthKit
 
-struct Challenge: Identifiable, Codable, Hashable {
+struct Challenge: Identifiable, Codable {
     var id: Int //Alternative: String {name}
     var name: String
     var description: String

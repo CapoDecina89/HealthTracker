@@ -17,7 +17,7 @@ final class ChallengeData: ObservableObject {
     
     // init instance of ChallengeData by importing "challengeData.json" & request HealthKit authorization
     init() {
-        challenges = load("challengeData.json")
+        challenges = ChallengeData.loadFromJSON("challengeData.json")
         print("Requesting HealthKit authorization...")
         let readTypes = Set(HealthData.readDataTypes)
         let shareTypes = Set(HealthData.shareDataTypes)
@@ -43,7 +43,7 @@ final class ChallengeData: ObservableObject {
         
         // Create a 1-day interval.
         let daily = DateComponents(day: 1)
-            
+        
         // Set the anchor for 3 a.m. on Monday.
         let anchorDate = createAnchorDate()
         
@@ -52,12 +52,12 @@ final class ChallengeData: ObservableObject {
         guard let quantityType = HKObjectType.quantityType(forIdentifier: typeIdentifier) else {
             fatalError("*** Unable to create a matching quantityType ***")
         }
-            
+        
         //How much days to go back in time
         guard let thirtyDaysAgo = Calendar.current.date(byAdding: DateComponents(day: -30), to: Date()) else {
-              fatalError("*** Unable to create a date thirty days ago ***")
+            fatalError("*** Unable to create a date thirty days ago ***")
         }
-            
+        
         //predicate for setting the querys timescope
         let oneMonthAgo = HKQuery.predicateForSamples(withStart: thirtyDaysAgo, end: nil, options: .strictStartDate)
         
@@ -67,10 +67,10 @@ final class ChallengeData: ObservableObject {
                                                 options: .cumulativeSum,
                                                 anchorDate: anchorDate,
                                                 intervalComponents: daily)
-            
+        
         // Set the results handler.
         query.initialResultsHandler = { query, results, error in
-                
+            
             // Handle errors here.
             if let error = error as? HKError {
                 switch (error.code) {
@@ -82,7 +82,7 @@ final class ChallengeData: ObservableObject {
                     return
                 }
             }
-                
+            
             if let statsCollection = results {
                 self.updateDailyData(statsCollection, challenge)
             } else {
@@ -91,19 +91,19 @@ final class ChallengeData: ObservableObject {
         }
         HealthData.healthStore.execute(query)
     }
-
+    
     /// processes the HKStatisticsCollection provided by `queryDailyData(for:)` and writes the data to `challenge.dailyData` for each challenge.
     func updateDailyData(_ statsCollection: HKStatisticsCollection, _ challenge: Challenge) {
         DispatchQueue.main.async {
             // Array for plotting the data
             var dailyData: [DailyData] = []
-
+            
             //Set startDate
             guard let startDate = Calendar.current.date(byAdding: DateComponents(day: -30), to: Date()) else {
                 fatalError("*** Unable to create a date thirty days ago ***")
             }
-                let endDate = Date()
-                    
+            let endDate = Date()
+            
             // Enumerate over all the statistics objects between the start and end dates.
             statsCollection.enumerateStatistics(from: startDate, to: endDate) { (statistics, stop) in
                 var dataValue = DailyData(date: statistics.startDate,
@@ -132,17 +132,17 @@ final class ChallengeData: ObservableObject {
         // Encoder
         let encoder = JSONEncoder()
         encoder.dateEncodingStrategy = .iso8601
-       do {
-           let encodedChallenges = try encoder.encode(self.challenges)
-           try encodedChallenges.write(to: documentsURL, options: .noFileProtection)
-           
-       } catch {
-           fatalError("Couldn't save Challenges as challengeData.json to Documents Directory:\n\(error)")
-       }
-   }
-}
+        do {
+            let encodedChallenges = try encoder.encode(self.challenges)
+            try encodedChallenges.write(to: documentsURL, options: .noFileProtection)
+            
+        } catch {
+            fatalError("Couldn't save Challenges as challengeData.json to Documents Directory:\n\(error)")
+        }
+    }
     
-    func load<T: Decodable>(_ filename: String) -> T {
+    /// loads `self.challenges` from filename.json in documents directory or if not existing from bundle
+    static func loadFromJSON<T: Decodable>(_ filename: String) -> T {
         let data: Data
         let documentsURL = FileManager.default.urls(for:.documentDirectory, in:.userDomainMask).first?.appending(path: filename)
         let file: URL
@@ -152,13 +152,13 @@ final class ChallengeData: ObservableObject {
         } else {
             file = Bundle.main.url(forResource: filename, withExtension: nil)!
         }
-
+        
         do {
             data = try Data(contentsOf: file)
         } catch {
             fatalError("Couldn't load \(filename) from main bundle:\n\(error)")
         }
-
+        
         do {
             let decoder = JSONDecoder()
             decoder.dateDecodingStrategy = .iso8601
@@ -167,3 +167,4 @@ final class ChallengeData: ObservableObject {
             fatalError("Couldn't parse \(filename) as \(T.self):\n\(error)")
         }
     }
+}

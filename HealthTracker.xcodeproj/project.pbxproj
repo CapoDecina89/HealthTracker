@@ -12,12 +12,11 @@
 		43618CB629796119003A2016 /* ChallengeOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43618CB529796119003A2016 /* ChallengeOverview.swift */; };
 		43618CBA29796C26003A2016 /* ChallengeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43618CB929796C26003A2016 /* ChallengeData.swift */; };
 		43618CBC297979BE003A2016 /* challengeData.json in Resources */ = {isa = PBXBuildFile; fileRef = 43618CBB297979BE003A2016 /* challengeData.json */; };
+		436E48F029916DED00380E89 /* HealthData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436E48EF29916DED00380E89 /* HealthData.swift */; };
 		43C6F5CE29769FC600609F16 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C6F5CD29769FC600609F16 /* DetailView.swift */; };
 		43C6F5D029769FEF00609F16 /* ChallengeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C6F5CF29769FEF00609F16 /* ChallengeView.swift */; };
 		43C6F5D52976C96900609F16 /* TimeSeriesOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C6F5D42976C96900609F16 /* TimeSeriesOverview.swift */; };
 		43C6F5D92976D17F00609F16 /* DataDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C6F5D82976D17F00609F16 /* DataDummy.swift */; };
-		43D6E4362982AD2F0038ADAB /* HealthData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D6E4352982AD2F0038ADAB /* HealthData.swift */; };
-		43D6E4382982AE6D0038ADAB /* HealthKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D6E4372982AE6D0038ADAB /* HealthKitHelper.swift */; };
 		43D6E43D29840D5B0038ADAB /* DailyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D6E43C29840D5B0038ADAB /* DailyData.swift */; };
 		43FE6A702972DF8B00C7D861 /* HealthTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FE6A6F2972DF8B00C7D861 /* HealthTrackerApp.swift */; };
 		43FE6A722972DF8B00C7D861 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FE6A712972DF8B00C7D861 /* DashboardView.swift */; };
@@ -48,12 +47,11 @@
 		43618CB529796119003A2016 /* ChallengeOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeOverview.swift; sourceTree = "<group>"; };
 		43618CB929796C26003A2016 /* ChallengeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeData.swift; sourceTree = "<group>"; };
 		43618CBB297979BE003A2016 /* challengeData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = challengeData.json; sourceTree = "<group>"; };
+		436E48EF29916DED00380E89 /* HealthData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthData.swift; sourceTree = "<group>"; };
 		43C6F5CD29769FC600609F16 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		43C6F5CF29769FEF00609F16 /* ChallengeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeView.swift; sourceTree = "<group>"; };
 		43C6F5D42976C96900609F16 /* TimeSeriesOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSeriesOverview.swift; sourceTree = "<group>"; };
 		43C6F5D82976D17F00609F16 /* DataDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDummy.swift; sourceTree = "<group>"; };
-		43D6E4352982AD2F0038ADAB /* HealthData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthData.swift; sourceTree = "<group>"; };
-		43D6E4372982AE6D0038ADAB /* HealthKitHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitHelper.swift; sourceTree = "<group>"; };
 		43D6E4392983EDA70038ADAB /* HealthTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HealthTracker.entitlements; sourceTree = "<group>"; };
 		43D6E43C29840D5B0038ADAB /* DailyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyData.swift; sourceTree = "<group>"; };
 		43D6E43E298424030038ADAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -105,9 +103,8 @@
 		43618CAA2977DF25003A2016 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				43D6E4352982AD2F0038ADAB /* HealthData.swift */,
+				436E48EF29916DED00380E89 /* HealthData.swift */,
 				43C6F5D82976D17F00609F16 /* DataDummy.swift */,
-				43D6E4372982AE6D0038ADAB /* HealthKitHelper.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -314,9 +311,8 @@
 				43618CB629796119003A2016 /* ChallengeOverview.swift in Sources */,
 				43618CBA29796C26003A2016 /* ChallengeData.swift in Sources */,
 				43618CA82977D22C003A2016 /* ChallengeRing.swift in Sources */,
+				436E48F029916DED00380E89 /* HealthData.swift in Sources */,
 				43FE6A702972DF8B00C7D861 /* HealthTrackerApp.swift in Sources */,
-				43D6E4362982AD2F0038ADAB /* HealthData.swift in Sources */,
-				43D6E4382982AE6D0038ADAB /* HealthKitHelper.swift in Sources */,
 				43618CB229781986003A2016 /* Challenge.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
