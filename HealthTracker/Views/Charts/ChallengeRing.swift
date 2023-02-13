@@ -9,22 +9,15 @@ import SwiftUI
 
 /// Nested activity rings
 struct ChallengeRing: View {
-    var progressChallenge: Double
-    //var last7Days: Double
-    //var goalsWeekly: Double
+    var challengeProgress: Double
     
     var body: some View {
         
-        VStack {
-            GeometryReader { geo in
-                Ring(progress: progressChallenge,
-                     lineWidth: geo.size.width/10,
-                     gradient: .activityProgress)
-                .padding()
-            }
-          //  Text("\(StepsData.last7DaysTotal)" + " " + "/" + " " + "\(Steps)" )
-            Text("letzte 7 Tage")
-                .font(.caption)
+        GeometryReader { geo in
+            Ring(progress: challengeProgress,
+                lineWidth: geo.size.width/10,
+                gradient: .activityProgress)
+            .padding()
         }
     }
 }
@@ -38,7 +31,7 @@ struct Ring: View {
     
     var body: some View {
         ZStack {
-            Text("\(Int(StepsData.progress*100))%")
+            Text("\(Int(progress*100))%")
                 .font(.title)
                 .bold()
                 .padding()
@@ -77,7 +70,7 @@ struct Ring: View {
                     )
                 )
         }
-        .scaledToFit()
+        //.scaledToFit()
         .padding(lineWidth/2)
     }
     
@@ -142,7 +135,9 @@ extension Color {
 }
 
 struct ChallengeRing_Previews: PreviewProvider {
+    static var challenges = ChallengeData().challenges
+    
     static var previews: some View {
-        ChallengeRing(progressChallenge: 0.8)
+        ChallengeRing(challengeProgress: challenges[0].progress)
     }
 }

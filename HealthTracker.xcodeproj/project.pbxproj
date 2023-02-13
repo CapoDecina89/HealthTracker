@@ -8,13 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		43618CA82977D22C003A2016 /* ChallengeRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43618CA72977D22C003A2016 /* ChallengeRing.swift */; };
-		43618CB02977E03C003A2016 /* Steps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43618CAF2977E03C003A2016 /* Steps.swift */; };
+		43618CB229781986003A2016 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43618CB129781986003A2016 /* Challenge.swift */; };
+		43618CB629796119003A2016 /* ChallengeOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43618CB529796119003A2016 /* ChallengeOverview.swift */; };
+		43618CBA29796C26003A2016 /* ChallengeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43618CB929796C26003A2016 /* ChallengeData.swift */; };
+		43618CBC297979BE003A2016 /* challengeData.json in Resources */ = {isa = PBXBuildFile; fileRef = 43618CBB297979BE003A2016 /* challengeData.json */; };
+		436E48F029916DED00380E89 /* HealthData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436E48EF29916DED00380E89 /* HealthData.swift */; };
 		43C6F5CE29769FC600609F16 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C6F5CD29769FC600609F16 /* DetailView.swift */; };
 		43C6F5D029769FEF00609F16 /* ChallengeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C6F5CF29769FEF00609F16 /* ChallengeView.swift */; };
 		43C6F5D52976C96900609F16 /* TimeSeriesOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C6F5D42976C96900609F16 /* TimeSeriesOverview.swift */; };
 		43C6F5D92976D17F00609F16 /* DataDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C6F5D82976D17F00609F16 /* DataDummy.swift */; };
+		43D6E43D29840D5B0038ADAB /* DailyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D6E43C29840D5B0038ADAB /* DailyData.swift */; };
 		43FE6A702972DF8B00C7D861 /* HealthTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FE6A6F2972DF8B00C7D861 /* HealthTrackerApp.swift */; };
-		43FE6A722972DF8B00C7D861 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FE6A712972DF8B00C7D861 /* ContentView.swift */; };
+		43FE6A722972DF8B00C7D861 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FE6A712972DF8B00C7D861 /* DashboardView.swift */; };
 		43FE6A742972DF8C00C7D861 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43FE6A732972DF8C00C7D861 /* Assets.xcassets */; };
 		43FE6A772972DF8C00C7D861 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43FE6A762972DF8C00C7D861 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -38,14 +43,21 @@
 
 /* Begin PBXFileReference section */
 		43618CA72977D22C003A2016 /* ChallengeRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeRing.swift; sourceTree = "<group>"; };
-		43618CAF2977E03C003A2016 /* Steps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Steps.swift; sourceTree = "<group>"; };
+		43618CB129781986003A2016 /* Challenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
+		43618CB529796119003A2016 /* ChallengeOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeOverview.swift; sourceTree = "<group>"; };
+		43618CB929796C26003A2016 /* ChallengeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeData.swift; sourceTree = "<group>"; };
+		43618CBB297979BE003A2016 /* challengeData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = challengeData.json; sourceTree = "<group>"; };
+		436E48EF29916DED00380E89 /* HealthData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthData.swift; sourceTree = "<group>"; };
 		43C6F5CD29769FC600609F16 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		43C6F5CF29769FEF00609F16 /* ChallengeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeView.swift; sourceTree = "<group>"; };
 		43C6F5D42976C96900609F16 /* TimeSeriesOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSeriesOverview.swift; sourceTree = "<group>"; };
 		43C6F5D82976D17F00609F16 /* DataDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDummy.swift; sourceTree = "<group>"; };
+		43D6E4392983EDA70038ADAB /* HealthTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HealthTracker.entitlements; sourceTree = "<group>"; };
+		43D6E43C29840D5B0038ADAB /* DailyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyData.swift; sourceTree = "<group>"; };
+		43D6E43E298424030038ADAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		43FE6A6C2972DF8B00C7D861 /* HealthTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43FE6A6F2972DF8B00C7D861 /* HealthTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthTrackerApp.swift; sourceTree = "<group>"; };
-		43FE6A712972DF8B00C7D861 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		43FE6A712972DF8B00C7D861 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		43FE6A732972DF8C00C7D861 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		43FE6A762972DF8C00C7D861 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		43FE6A7C2972DF8C00C7D861 /* HealthTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HealthTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,7 +92,10 @@
 		43618CA92977DEFB003A2016 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				43618CAF2977E03C003A2016 /* Steps.swift */,
+				43618CBB297979BE003A2016 /* challengeData.json */,
+				43618CB929796C26003A2016 /* ChallengeData.swift */,
+				43D6E43C29840D5B0038ADAB /* DailyData.swift */,
+				43618CB129781986003A2016 /* Challenge.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -88,9 +103,21 @@
 		43618CAA2977DF25003A2016 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				436E48EF29916DED00380E89 /* HealthData.swift */,
 				43C6F5D82976D17F00609F16 /* DataDummy.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		43618CB829796999003A2016 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				43C6F5D12976C8BE00609F16 /* Charts */,
+				43C6F5CF29769FEF00609F16 /* ChallengeView.swift */,
+				43FE6A712972DF8B00C7D861 /* DashboardView.swift */,
+				43C6F5CD29769FC600609F16 /* DetailView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		43C6F5D12976C8BE00609F16 /* Charts */ = {
@@ -98,6 +125,7 @@
 			children = (
 				43C6F5D42976C96900609F16 /* TimeSeriesOverview.swift */,
 				43618CA72977D22C003A2016 /* ChallengeRing.swift */,
+				43618CB529796119003A2016 /* ChallengeOverview.swift */,
 			);
 			path = Charts;
 			sourceTree = "<group>";
@@ -123,13 +151,12 @@
 		43FE6A6E2972DF8B00C7D861 /* HealthTracker */ = {
 			isa = PBXGroup;
 			children = (
+				43D6E43E298424030038ADAB /* Info.plist */,
+				43D6E4392983EDA70038ADAB /* HealthTracker.entitlements */,
+				43FE6A6F2972DF8B00C7D861 /* HealthTrackerApp.swift */,
 				43618CAA2977DF25003A2016 /* Util */,
 				43618CA92977DEFB003A2016 /* Model */,
-				43C6F5D12976C8BE00609F16 /* Charts */,
-				43FE6A6F2972DF8B00C7D861 /* HealthTrackerApp.swift */,
-				43C6F5CF29769FEF00609F16 /* ChallengeView.swift */,
-				43FE6A712972DF8B00C7D861 /* ContentView.swift */,
-				43C6F5CD29769FC600609F16 /* DetailView.swift */,
+				43618CB829796999003A2016 /* Views */,
 				43FE6A732972DF8C00C7D861 /* Assets.xcassets */,
 				43FE6A752972DF8C00C7D861 /* Preview Content */,
 			);
@@ -249,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43FE6A772972DF8C00C7D861 /* Preview Assets.xcassets in Resources */,
+				43618CBC297979BE003A2016 /* challengeData.json in Resources */,
 				43FE6A742972DF8C00C7D861 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,12 +304,16 @@
 			files = (
 				43C6F5D92976D17F00609F16 /* DataDummy.swift in Sources */,
 				43C6F5D52976C96900609F16 /* TimeSeriesOverview.swift in Sources */,
+				43D6E43D29840D5B0038ADAB /* DailyData.swift in Sources */,
 				43C6F5D029769FEF00609F16 /* ChallengeView.swift in Sources */,
-				43FE6A722972DF8B00C7D861 /* ContentView.swift in Sources */,
+				43FE6A722972DF8B00C7D861 /* DashboardView.swift in Sources */,
 				43C6F5CE29769FC600609F16 /* DetailView.swift in Sources */,
-				43618CB02977E03C003A2016 /* Steps.swift in Sources */,
+				43618CB629796119003A2016 /* ChallengeOverview.swift in Sources */,
+				43618CBA29796C26003A2016 /* ChallengeData.swift in Sources */,
 				43618CA82977D22C003A2016 /* ChallengeRing.swift in Sources */,
+				436E48F029916DED00380E89 /* HealthData.swift in Sources */,
 				43FE6A702972DF8B00C7D861 /* HealthTrackerApp.swift in Sources */,
+				43618CB229781986003A2016 /* Challenge.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,13 +466,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = HealthTracker/HealthTracker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"HealthTracker/Preview Content\"";
 				DEVELOPMENT_TEAM = H26FYZ7CJ8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = HealthTracker/Info.plist;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Erlaube HealthTracker Daten zu exportieren";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Erlaube HealthTracker Daten zu importieren";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -463,13 +498,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = HealthTracker/HealthTracker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"HealthTracker/Preview Content\"";
 				DEVELOPMENT_TEAM = H26FYZ7CJ8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = HealthTracker/Info.plist;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Erlaube HealthTracker Daten zu exportieren";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Erlaube HealthTracker Daten zu importieren";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
